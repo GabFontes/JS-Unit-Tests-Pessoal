@@ -37,23 +37,26 @@ const createMenu = require('../src/restaurant');
   - Uma chave `consumption` que contém um array de strings, com cada string sendo a chave de um pedido. Por exemplo: ['coxinha', 'cerveja']
 
   - Uma chave `order` que tem uma função que, recebida uma string como parâmetro, adiciona essa string à lista salva em `consumption`.
-
+  
   - Uma chave `pay` que, quando chamada, invoca uma função que soma o valor de todos os pedidos e dá o preço com acréscimo de 10%.
-
+  
   IMPORTANTE: FAÇA OS TESTES E PASSOS DE ACORDO COM A ORDEM INDICADA!
-
-*/
-
-describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
-  it('Verifica se a função `createMenu` tem o comportamento esperado', () => {
-    fail('Teste vazio!');
-    // TESTE 1: Verifique se o retorno da função createMenu() é um objeto que possui a
-    // chave fetchMenu, a qual tem como valor uma função.
+  
+  */
+ 
+ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
+   it('Verifica se a função `createMenu` tem o comportamento esperado', () => {
+     // TESTE 1: Verifique se o retorno da função createMenu() é um objeto que possui a
+     // chave fetchMenu, a qual tem como valor uma função.
+     const obj = { food: {'coxinha': 3.90, 'sanduiche': 9.90}, drinks: {'agua': 3.90, 'cerveja': 6.90}}
+     expect(createMenu(obj)).toBeInstanceOf(Object)
+     expect(createMenu(obj).fetchMenu).toBeInstanceOf(Function)
     // ```
     // const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
     // ```
     // TESTE 2: Verifique se 'objetoRetornado.fetchMenu()' retorna um objeto cujas chaves são somente `food` e `drink`, 
     // considerando que a função createMenu() foi chamada com o objeto: `{ food: {}, drink: {} }`.
+    
     // ```
     // const objetoRetornado = createMenu({ food: {}, drink: {} });
     // objetoRetornado.fetchMenu() // Retorno: { food: {}, drink: {}}
